@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   schedule: Schedule[] =  [];
 
   currentTime: Date = new Date();
-  //currentTime: Date = new Date(new Date().toDateString() + ' ' + '11:40');
+  //currentTime: Date = new Date('Thu Jan 06 2021 11:55');
 
   timeOverlapMins = 15;
 

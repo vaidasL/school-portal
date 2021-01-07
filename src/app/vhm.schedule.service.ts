@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class VhmScheduleService {
 
-  proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  proxyUrl = 'https://desolate-gorge-70894.herokuapp.com/';
   targetUrl = 'https://vhm.lt/mokinio-diena/';
 
   constructor(private http: HttpClient) { }
