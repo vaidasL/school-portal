@@ -26,7 +26,7 @@ div.container {
         &:hover {
             border: 3px lightgray solid;
             opacity: 1;
-            height: 100px;
+            height: 110px;
         }
 
         &::before {
@@ -101,12 +101,14 @@ div.future::before {
     padding: 5px;
     a {
         white-space: nowrap;
+        color: black;
+        opacity: .8;
     }
 }
 
 .mat-list-icon {
     place-self: flex-start;
-    color: red;
+    color: rgba(255, 0, 0, 0.659);
 }
 
 .mat-list-item {
