@@ -1,0 +1,130 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+}
+
+div.container {
+    width: 80%;
+    margin: auto;
+
+    & div {
+        background-size: 50px;
+        background-position: 98% 5px;
+        background-repeat: no-repeat;
+
+        overflow: hidden;
+        border-radius: 6px;
+        padding: 10px;
+        height: 60px;
+        border: 0px lightgrey solid;
+        margin: 3px;
+        border: 3px white solid;
+        transition: border .2s ease-in-out;
+        transition:  height .5s ease-in-out ;
+
+        &:hover {
+            border: 3px lightgray solid;
+            opacity: 1;
+            height: 100px;
+        }
+
+        &::before {
+            float: right;
+            opacity: .3;
+            font-size: 25px;
+            line-height: 40px;
+            left: 45%;
+            margin-top: 20px;
+            position: absolute;
+            
+        }
+
+        span.details {
+            margin-top: 20px;
+            border: 0px black solid;
+            display: block;
+            font-size: 80%;
+        }
+    }
+}
+
+div.active {
+    background-color: rgba(32, 178, 171, 0.486);
+    min-height: 150px !important;
+
+    .subject {
+        font-weight: bolder;
+    }
+
+    &::before {
+        content: 'pamoka vyksta';
+    }
+}
+
+div.starting {
+    cursor: auto !important;
+    background-color: rgba(32, 178, 171, 0.178);
+    min-height: 150px !important;
+
+    span.info {
+        width: 300px;
+        margin: auto; 
+        display: block;
+        color: red;
+    }
+}
+
+div.past, div.future {
+    opacity: .5;
+    background-color: lightgrey;
+}
+
+div.past::before {
+    content: 'pamoka baigėsi';
+}
+
+div.future::before {
+    content: 'pamoka neprasidėjo';
+}
+
+.mat-list-base {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 3%;
+}
+
+.detailItem {
+    height: auto !important;
+    width: auto !important;
+    padding: 5px;
+    a {
+        white-space: nowrap;
+    }
+}
+
+.mat-list-icon {
+    place-self: flex-start;
+    color: red;
+}
+
+.mat-list-item {
+    font-size: 130%;
+    height: auto;
+}
+
+.mat-select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 120px; 
+    border: 1px lightgrey solid;
+    border-radius: 6px;
+    padding:10px;
+}
+
+mat-spinner {
+    margin: auto;
+    width: 50px;
+    height: 100px;
+}

@@ -1,0 +1,27 @@
+[
+    {"name": "Alma", "photo": "assets/images/alma.png", "details": [
+      {"key": "zoom", "value":"https://zoom.us/j/9927979080"},
+      {"key": "EMA", "value":"https://emapamokos.lt/m"}
+    ]},
+    {"name": "Agneška", "photo": "https://vhm.lt/uploads/_CGSmartImage/1598803765_0_Agneska_01-5a171106a74ed8a1f0607f80dde77691.png", "details": [
+      {"key": "EMA", "value":"https://emapamokos.lt/m"}
+    ]},
+    {"name": "Jurga", "photo": "https://vhm.lt/uploads/_CGSmartImage/1537126682_0_anglu-29a6cfe5d22ef2ca875000c69a1ebc74.png", "details":[
+      {"key": "zoom", "value":"https://zoom.us/j/8338762244"},
+      {"key": "Eduka dienynas", "value":"https://dienynas.eduka.lt/"},
+      {"key": "Liveworksheets - vakarel", "value":"https://www.liveworksheets.com/workbooks/"}
+    ]},
+    {"name": "Genadijus", "photo": "https://vhm.lt/uploads/_CGSmartImage/1598803804_0_Genadijus_01-4df1632b6eee627b7a7f862d9042b852.png", "details":[
+      {"key": "zoom", "value":"https://zoom.us/j/8220932860"},
+      {"key": "Eduka dienynas", "value":"https://dienynas.eduka.lt/"},
+      {"key": "live worksheets - lvakare", "value":"https://www.liveworksheets.com/workbooks/"},
+      {"key": "wordwall", "value":"https://wordwall.net/"},
+      {"key": "learning apps", "value":"https://learningapps.org/"}
+    ]},
+    {"name": "Andrius", "photo": "https://vhm.lt/uploads/_CGSmartImage/1567604879_0_narsa_01-fa0e198ef1a2bcf1731f8720ac93e23e.png", "details":[
+      {"key": "zoom", "value":"https://zoom.us/j/4801673513"}
+    ]},
+    {"name": "Youtube", "photo": "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube-512.png", "details":[
+      {"key": "youtube", "value":"https://www.youtube.com/channel/UCjZCOL1hbhdrgL0Hf8zooSg"}
+    ]}
+  ]
