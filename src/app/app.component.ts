@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ClockService } from './clock.service';
 import { PushNotificationsService } from './push.notifications.service';
 import { VhmScheduleService } from './vhm.schedule.service';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -60,34 +61,38 @@ export class AppComponent implements OnInit {
 
   private setup(newDate: Date) {
     this.currentTime = newDate;
-    this.schedule.forEach(s => {
-      if (typeof s.time === 'string') {
-        s.time = new Date(this.currentTime.toDateString() + ' ' + s.time);
-      }
-
-      // ignore other day schedules
-      if (this.currentTime.getDay() != s.time.getDay()) {
-        return;
-      }
-
-      s.status = this.getStatus(s.time);
-      s.minutesLeft = this.getMinutesLeft(s.time);
-      if (s.minutesLeft == 5 || s.minutesLeft == 0) {
-        const title = s.minutesLeft == 0 ? 'Pamoka prasideda!' : 'Pamoka už ' + s.minutesLeft + 'min.';
-        this.showNotification(title, s.subject, s.teacher.photo);
-      }
-    });
+    this.schedule
+      // work only on current day
+      .filter(s => this.currentTime.getDay() === s.day)
+      // recalculate time related attributes
+      .forEach(s => {
+        if (typeof s.time === 'string') {
+          s.time = new Date(this.currentTime.toDateString() + ' ' + s.time);
+        }
+        s.status = this.getStatus(s.time);
+        s.minutesLeft = this.getMinutesLeft(s.time);
+        if (s.minutesLeft == 5 || s.minutesLeft == 0) {
+          const title = s.minutesLeft == 0 ? 'Pamoka prasideda!' : 'Pamoka už ' + s.minutesLeft + 'min.';
+          this.showNotification(title, s.subject, s.teacher.photo);
+        }
+      });
   }
 
   private retrieve(className: any, subGroup: any) {
+    this.loading = true;
     this.vhm.getSource(className, subGroup).subscribe(s => {
-      this.schedule = [];
+      const newSchedule: Schedule[] = [];
       for (let i=1; i<=5; i++) {
         s[i].forEach((l:any) => {
-          this.schedule.push({day: i+'', time: l.time, subject: l.subject, teacher: this.getTeacher(l.subject, className), minutesLeft: -1, status: 'future'})
+          newSchedule.push({day: i, time: l.time, subject: l.subject, teacher: this.getTeacher(l.subject, className), minutesLeft: -1, status: 'future'})
         });
       }
+      this.schedule = newSchedule;
       this.setup(this.currentTime);
+      this.loading = false;
+    }, err => {
+      console.log('loading failed', err);
+      alert('Nepavyko gauti tvarkaraščio iš vhm.lt');
       this.loading = false;
     });
   }
@@ -152,13 +157,12 @@ export class AppComponent implements OnInit {
     localStorage.setItem('className', this.className);
     localStorage.setItem('subGroup', this.subGroup);
     if (this.className && this.subGroup) {
-      this.loading = true;
       this.retrieve(this.className, this.subGroup);
     }
   }
 
   public getTodaysSchedule() {
-    return this.schedule.filter(s => s.day == this.currentTime.getDay() + '');
+    return this.schedule.filter(s => s.day == this.currentTime.getDay());
   }
 
   public test() {
@@ -166,10 +170,15 @@ export class AppComponent implements OnInit {
       this.showNotification('title', 'body', '');
     }, 2000);
   }
+
+  @HostListener('window:focus', ['$event'])
+  onFocus(event: FocusEvent): void {
+    this.setup(new Date());
+  }
 }
 
 interface Schedule {
-  day: string, 
+  day: number, 
   time: any, 
   subject: string, 
   teacher: any,
