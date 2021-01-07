@@ -65,6 +65,11 @@ export class AppComponent implements OnInit {
         s.time = new Date(this.currentTime.toDateString() + ' ' + s.time);
       }
 
+      // ignore other day schedules
+      if (this.currentTime.getDay() != s.time.getDay()) {
+        return;
+      }
+
       s.status = this.getStatus(s.time);
       s.minutesLeft = this.getMinutesLeft(s.time);
       if (s.minutesLeft == 5 || s.minutesLeft == 0) {
