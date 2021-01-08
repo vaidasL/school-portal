@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
   teachers: Teacher[] = [];
   schedule: Schedule[] =  [];
 
-  currentTime: Date = new Date();
-  //currentTime: Date = new Date('Thu Jan 06 2021 11:55');
+  //currentTime: Date = new Date();
+  currentTime: Date = new Date('Thu Jan 09 2021 11:55');
 
   timeOverlapMins = 15;
 
@@ -52,9 +52,9 @@ export class AppComponent implements OnInit {
     
     this.clockService.getCurrentTime().subscribe(time => {
       if (time.getDay() != this.currentTime.getDay()) {
-        this.retrieve(this.className, this.subGroup);
+        //this.retrieve(this.className, this.subGroup);
       } else {
-        this.setup(time);
+        //this.setup(time);
       }
     });
   }

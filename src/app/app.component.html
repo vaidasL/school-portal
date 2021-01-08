@@ -28,5 +28,9 @@
       </mat-list>
     </span>
   </div>
+  <div *ngIf="!getTodaysSchedule().length" style="height: auto;text-align: center;">
+    Šiandien pamokų nėra! <br>
+    <img src="assets/images/free.png" style="border-radius: 6px;height: 60%;margin-top: 20px; display: inline-block;">
+  </div>
 </div>
 <router-outlet></router-outlet>
