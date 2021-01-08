@@ -9,6 +9,7 @@ div.container {
     margin: auto;
 
     & div {
+        outline-color: gray;
         background-size: 50px;
         background-position: 98% 5px;
         background-repeat: no-repeat;
@@ -23,7 +24,7 @@ div.container {
         transition: border .2s ease-in-out;
         transition:  height .5s ease-in-out ;
 
-        &:hover {
+        &:hover, &:focus, &:focus-within {
             border: 3px lightgray solid;
             opacity: 1;
             height: 120px;
@@ -92,7 +93,7 @@ div.future::before {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    padding-top: 4%;
+    padding-top: 40px;
 }
 
 .detailItem {
@@ -103,6 +104,17 @@ div.future::before {
         white-space: nowrap;
         color: black;
         opacity: .8;
+        outline-color: gray;
+
+        display: flex;
+        line-height: 35px;
+        text-decoration: none;
+
+        &:focus, &:hover {
+            outline: none;
+            font-weight: bold;
+            opacity: 1;
+        }
     }
 }
 

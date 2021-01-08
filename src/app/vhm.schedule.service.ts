@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 export class VhmScheduleService {
   //https://github.com/Freeboard/thingproxy
   proxyUrl = 'https://desolate-gorge-70894.herokuapp.com/';
+  //proxyUrl = 'https://thingproxy.freeboard.io/fetch/';
   targetUrl = 'https://vhm.lt/mokinio-diena/';
 
   constructor(private http: HttpClient) { }

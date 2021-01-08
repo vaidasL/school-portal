@@ -11,15 +11,18 @@
 </div>
 <mat-spinner *ngIf="loading"></mat-spinner>
 <div *ngIf="!loading" class="container">
-  <div *ngFor="let entry of getTodaysSchedule()" [ngClass]="entry.status" style="background-image: url('{{entry.teacher.photo}}')">
+  <div tabindex="0" *ngFor="let entry of getTodaysSchedule()" [ngClass]="entry.status" style="background-image: url('{{entry.teacher.photo}}')">
     <span *ngIf="entry.status === 'starting' && entry.minutesLeft > 0" class="info">Pamoka prasidės už {{entry.minutesLeft}}min.</span>
     <span *ngIf="entry.status === 'starting' && entry.minutesLeft == 0" class="info">Pamoka prasideda</span>
     <span class="subject">{{entry.time | date: 'H:mm'}} {{entry.subject}}</span>
     <span  class="details">
       <mat-list  class="inline-list">
         <mat-list-item *ngFor="let detail of entry.teacher.details; let k=index" class="detailItem">
-          <mat-icon mat-list-icon>play_circle_outline</mat-icon>
-          <a *ngIf="detail.value.startsWith('http')" [attr.href]="detail.value">{{detail.key}}</a>
+          
+          <a *ngIf="detail.value.startsWith('http')" [attr.href]="detail.value">
+            <mat-icon mat-list-icon>play_circle_outline</mat-icon>
+            {{detail.key}}
+          </a>
           <ng-container *ngIf="!detail.value.startsWith('http')">{{detail.key}} {{detail.value}}</ng-container>
         </mat-list-item>
       </mat-list>
