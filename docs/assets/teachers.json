@@ -3,6 +3,9 @@
       {"key": "zoom", "value":"https://zoom.us/j/9927979080"},
       {"key": "EMA", "value":"https://emapamokos.lt/m"}
     ]},
+    {"name": "Vygantas", "photo": "https://vhm.lt/uploads/_CGSmartImage/1504201670_0_8_01-7f2ad12d628561e39c7543b143419e62.png", "details": [
+      {"key": "zoom", "value":"https://zoom.us/j/6345127436"}
+    ]},
     {"name": "Agneška", "photo": "https://vhm.lt/uploads/_CGSmartImage/1598803765_0_Agneska_01-5a171106a74ed8a1f0607f80dde77691.png", "details": [
       {"key": "zoom", "value":"https://zoom.us/j/4614889141"},
       {"key": "EMA", "value":"https://emapamokos.lt/m"}
