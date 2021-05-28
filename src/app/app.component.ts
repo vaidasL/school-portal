@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   schedule: Schedule[] =  [];
 
   currentTime: Date = new Date();
-  //currentTime: Date = new Date('Fri Feb 05 2021 11:55');
+  //currentTime: Date = new Date('Mon Feb 01 2021 11:43');
 
   timeOverlapMins = 15;
 
@@ -80,7 +80,8 @@ export class AppComponent implements OnInit {
 
   private retrieve(className: any, subGroup: any) {
     this.loading = true;
-    this.vhm.getSource(className, subGroup).subscribe(s => {
+    //this.vhm.getSourceRegular(className).subscribe(s => {});
+    this.vhm.getSourceRegular(className, subGroup).subscribe(s => {
       const newSchedule: Schedule[] = [];
       for (let i=1; i<=5; i++) {
         s[i].forEach((l:any) => {
@@ -103,6 +104,24 @@ export class AppComponent implements OnInit {
   }
 
   private getStatus(time: Date): 'active' | 'past' | 'future' | 'starting' {
+    if (this.currentTime.getTime() < time.getTime() && (time.getTime()-this.currentTime.getTime()) < 60000 * this.timeOverlapMins) {
+      return 'starting';
+    }
+
+    if (time.getTime() <= this.currentTime.getTime() && (new Date(time.getTime() + (50 - this.timeOverlapMins)*60000)).getTime() > this.currentTime.getTime()) {
+      return 'active';
+    }
+
+    if (time.getTime() > this.currentTime.getTime()) {
+      return 'future';
+    }
+
+
+    return 'past';
+
+
+/*
+
     if (time.getHours() === this.currentTime.getHours()+1 && Math.abs(time.getTime()-this.currentTime.getTime()) < 60000 * this.timeOverlapMins) {
       return 'starting';
     }
@@ -116,11 +135,12 @@ export class AppComponent implements OnInit {
     }
 
     return 'past';
+    */
   }
 
   private getTeacher(subject: string, className: string) {
     let n = '';
-    if (subject.search(/lietuv/i) >=0 || subject.search(/matem/i) >=0 || subject.search(/pasaul/i) >=0) {
+    if (subject.search(/(lietuv|matem|pasaul|bendryst|skaitym)/i) >=0) {
       n = className == 'A' ? 'Agneška' : 'Alma';
     } else if (subject.search(/angl/i) >= 0) {
       n = 'Jurga';
@@ -130,6 +150,8 @@ export class AppComponent implements OnInit {
       n = 'Andrius';
     } else if (subject.search(/youtube/i) >= 0) {
       n = 'Youtube';
+    } else if (subject.search(/(muzika|teatras|techno|basein|kult|okis|lauke)/i) >= 0) {
+      return {photo: ''};
     } else {
       n = 'Genadijus';
     }

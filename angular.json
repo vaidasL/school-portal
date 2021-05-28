@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "school-portal"
+  "defaultProject": "school-portal",
+  "cli": {
+    "analytics": "51c0103c-0450-45de-b8cd-b83a7a9a76f9"
+  }
 }
