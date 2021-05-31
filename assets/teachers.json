@@ -27,5 +27,12 @@
     ]},
     {"name": "Youtube", "photo": "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube-512.png", "details":[
       {"key": "youtube", "value":"https://www.youtube.com/channel/UCjZCOL1hbhdrgL0Hf8zooSg"}
+    ]},
+    {"name": "Bendryste", "photo": "", "details":[
+      {"key": "Pirmadienis - VwS1sk", "value":"https://zoom.us/j/6446127681"},
+      {"key": "Antradienis - 234234", "value":"https://zoom.us/j/8010899674"},
+      {"key": "Trečiadienis - 332134", "value":"https://zoom.us/j/3931621623"},
+      {"key": "Ketvirtadienis - BGv8w4", "value":"https://zoom.us/j/4614889141"},
+      {"key": "Penktadienis - 123456", "value":"https://zoom.us/j/9520679639"}
     ]}
   ]
