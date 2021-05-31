@@ -140,7 +140,7 @@ export class AppComponent implements OnInit {
 
   private getTeacher(subject: string, className: string) {
     let n = '';
-    if (subject.search(/(lietuv|matem|pasaul|bendryst|skaitym)/i) >=0) {
+    if (subject.search(/(lietuv|matem|pasaul|skaitym)/i) >=0) {
       n = className == 'A' ? 'Agneška' : 'Alma';
     } else if (subject.search(/angl/i) >= 0) {
       n = 'Jurga';
@@ -150,6 +150,8 @@ export class AppComponent implements OnInit {
       n = 'Andrius';
     } else if (subject.search(/youtube/i) >= 0) {
       n = 'Youtube';
+    } else if (subject.search(/bendryst/i) >= 0) {
+      n = 'Bendryste';
     } else if (subject.search(/(muzika|teatras|techno|basein|kult|okis|lauke)/i) >= 0) {
       return {photo: ''};
     } else {

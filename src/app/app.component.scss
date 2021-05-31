@@ -27,7 +27,7 @@ div.container {
         &:hover, &:focus, &:focus-within {
             border: 3px lightgray solid;
             opacity: 1;
-            height: 120px;
+            height: 130px;
         }
 
         &::before {
@@ -93,6 +93,7 @@ div.future::before {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
     padding-top: 40px;
 }
 
